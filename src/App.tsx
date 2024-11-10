@@ -20,12 +20,12 @@ function App() {
     {
       url: '/videos/video2.mp4',
       VideoLabel: "HOURLY",
-      transcript: "Video 2 transcript here"
+      transcript: "Hello friends, let's dive into today's weather forecast! We have some temperatures that range from chilly to just a bit nippy, but no need to worry about umbrellas because it looks like we will be rain-free throughout the day. Starting with the morning, temperatures are a brisk 32.8°F, gradually warming up to a cozy 44.2°F by late morning. As we move into the afternoon, the mercury peaks at about 51.0°F – perfect for a nice walk outside! Then, with the sun setting, things will cool down again, dipping back to around 35.7°F by late evening. So, to recap: A cool start and warm afternoon with no rain in sight. Enjoy the weather and keep that jacket handy!"
     },
     {
       url: '/videos/video3.mp4',
-      VideoLabel: "10 DAY",
-      transcript: "Video 3 transcript here"
+      VideoLabel: "7 DAY",
+      transcript: "Hello there, weather enthusiasts. Let's dive into your seven day forecast. Monday, expect a high of 91 degrees and a low of 91 degrees. No rain here. It will be a bit cooler with a high of 91 degrees and a low of 91 degrees. Still no rain in sight. We're looking at a high of 94 degrees and a low of 90 degree. Keep that umbrella at home. It won't rain. A high of 94 and a low of 94. Good news, you won't get wet. Friday, we have a high of 94 degrees and a low of 91 degrees. Dry as a desert. Saturday, the sun will shine with highs of 92 and lows of 90. Rain? Not a chance. Wrap up the week with a high of 92 degrees and a low of 92 degrees. No rain clouds here. That's your weather outlook. Sunny and dry for the week ahead. Stay cool."
     }
   ]
 
