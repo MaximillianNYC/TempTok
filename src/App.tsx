@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import playIcon from '/icons/play-solid.svg'
+import pauseIcon from '/icons/pause-solid.svg'
+import locationPin from '/icons/v1/location-dot-solid.svg'
 
 function App() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
@@ -12,17 +15,17 @@ function App() {
   const videos = [
     {
       url: '/videos/video1.mp4',
-      VideoLabel: "Today's forecast",
+      VideoLabel: "TODAY",
       transcript: "Alright folks, we've got a chilly outlook ahead! Temperatures are dancing around the 0 to 8 degree mark throughout the day. Expect a frosty start, with lows creeping to nearly 2 degrees. But as we warm up, we might see some mild temps peaking around a cozy 8 degrees. \n\nSo, grab that heavy coat and maybe a hot cup of cocoa, because it's going to be a brisk day out there! Stay warm!"
     },
     {
       url: '/videos/video2.mp4',
-      VideoLabel: "Hourly breakdown",
+      VideoLabel: "HOURLY",
       transcript: "Video 2 transcript here"
     },
     {
       url: '/videos/video3.mp4',
-      VideoLabel: "10 day breakdown",
+      VideoLabel: "10 DAY",
       transcript: "Video 3 transcript here"
     }
   ]
@@ -128,15 +131,18 @@ function App() {
   return (
     <div className="lifetok-container" onWheel={handleScroll}>
       <div className="Nav">
-        <div className="Location">TempTok for Manhattan, NY</div>
+        <div className="Location">
+          <img src="/icons/location-dot-solid.svg" alt="Location" style={{width: '14px', height: '14px'}} />
+          Manhattan, NY
+        </div>
         <div className="video-info">
             {videos.map((video, index) => (
               <p 
                 key={index} 
                 className="VideoLabel" 
                 style={{
-                  fontWeight: index === currentVideoIndex ? 'bold' : 'normal',
-                  opacity: index === currentVideoIndex ? 1 : 0.5,
+                  fontWeight: index === currentVideoIndex ? 'bold' : 'bold',
+                  opacity: index === currentVideoIndex ? 1 : 0.25,
                   transition: 'opacity 0.3s ease-in-out',
                   cursor: 'pointer'
                 }}
@@ -146,38 +152,20 @@ function App() {
               </p>
             ))}
           </div>
-          <button 
-            onClick={handlePlayPause}
-            style={{
-              padding: '8px 16px',
-              borderRadius: '8px', 
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              color: 'white',
-              border: 'none',
-              cursor: 'pointer',
-              marginTop: '16px',
-              marginLeft: '8px'
-            }}
+          <div className="controls">
+            <button 
+              onClick={handlePlayPause}
+              className="playbackButton"
+            >
+              <img src={isPaused ? playIcon : pauseIcon} alt={isPaused ? "Play" : "Pause"} style={{width: '24px', height: '24px'}} />
+            </button>
+            <button 
+            onClick={toggleMute}
+            className="muteButton"
           >
-            {isPaused ? '▶️ Play' : '⏸️ Pause'}
+            {isMuted ? '🔇' : '🔊'}
           </button>
-          <button 
-          onClick={toggleMute}
-          style={{
-            bottom: '24px',
-            right: '24px',
-            padding: '8px 16px',
-            borderRadius: '8px',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            color: 'white',
-            border: 'none',
-            cursor: 'pointer',
-            marginTop: '16px',
-            marginLeft: '8px'
-          }}
-        >
-          {isMuted ? '🔇  Unmute' : '🔊  Mute'}
-        </button>
+          </div>
       </div>
       <div className={`video-container ${isFadingOut ? 'fade-out' : 'fade-in'}`}>
         <video
