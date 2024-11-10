@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import playIcon from '/icons/play-solid.svg'
 import pauseIcon from '/icons/pause-solid.svg'
-import locationPin from '/icons/v1/location-dot-solid.svg'
 
 function App() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
